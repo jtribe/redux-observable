@@ -1,0 +1,4 @@
+rootProject.name = 'au.com.jtribe.reduxobservable.redux-observable'
+include 'redux-observable-library'
+include 'redux-observable-sample'
+
