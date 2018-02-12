@@ -15,20 +15,15 @@ public class CombinedEpic<S> {
     return combineEpics(Arrays.asList(epics));
   }
 
-  public static Epic combineEpics(List<Epic> epics) {
+  public static <S> Epic<S> combineEpics(List<Epic<S>> epics) {
     if (epics == null || epics.size() == 0) {
       // todo: we've got no epics, how to handle that?
       return null;
     } else {
-      return new Epic() {
-        @Override
-        public Observable<Object> map(Observable<Object> actions, StateProvider stateProvider) {
-          return Observable.mergeArray(
-              epics.stream() //
-                  .map(e -> e.map(actions, stateProvider)) //
-                  .<Observable<Object>>toArray(Observable[]::new));
-        }
-      };
+      return (actions, stateProvider) -> Observable.mergeArray(
+          epics.stream() //
+              .map(e -> e.map(actions, stateProvider)) //
+              .<Observable<Object>>toArray(Observable[]::new));
     }
   }
 }

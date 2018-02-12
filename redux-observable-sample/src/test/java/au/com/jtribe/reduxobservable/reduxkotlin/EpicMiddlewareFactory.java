@@ -16,7 +16,7 @@ import redux.api.enhancer.Middleware;
  */
 
 public class EpicMiddlewareFactory<S> {
-  public static <S> Middleware<S> createMiddleware(Epic e) {
+  public static <S> Middleware<S> createMiddleware(Epic<S> e) {
     return new Middleware<S>() {
       boolean subscribed = false;
       PublishSubject<Object> actions = PublishSubject.create();

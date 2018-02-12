@@ -30,16 +30,16 @@ public class CombineEpicsTest {
   public void testMakeEpics() {
 
     PublishSubject<Object> actions = PublishSubject.create();
-    Epic pingEpic = new Epic() {
+    Epic pingEpic = new Epic<Object>() {
       @Override
-      public Observable<Object> map(Observable<Object> actions, StateProvider storeProvider) {
+      public Observable<Object> map(Observable<Object> actions, StateProvider<Object> storeProvider) {
         return actions.ofType(PingAction.class).map(__ -> new PongAction());
       }
     };
 
-    Epic pongEpic = new Epic() {
+    Epic pongEpic = new Epic<Object>() {
       @Override
-      public Observable<Object> map(Observable<Object> actions, StateProvider storeProvider) {
+      public Observable<Object> map(Observable<Object> actions, StateProvider<Object> storeProvider) {
         return actions.ofType(PongAction.class).map(__ -> new FinishPingPongAction());
       }
     };
@@ -61,11 +61,11 @@ public class CombineEpicsTest {
     PublishSubject<Object> actions = PublishSubject.create();
     final boolean[] accessed = {false};
 
-    Epic accessStoreEpic = new Epic() {
+    Epic accessStoreEpic = new Epic<Object>() {
       @Override
-      public Observable<Object> map(Observable<Object> actions, StateProvider storeProvider) {
+      public Observable<Object> map(Observable<Object> actions, StateProvider<Object> storeProvider) {
         return actions.ofType(AccessStoreAction.class)
-            .doOnNext(__ -> storeProvider.getStore())
+            .doOnNext(__ -> storeProvider.getState())
             .map(__ -> new StoreAccessedAction());
       }
     };

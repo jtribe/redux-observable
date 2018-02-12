@@ -9,6 +9,8 @@ import redux.api.Dispatcher;
 import redux.api.Store;
 import redux.api.enhancer.Middleware;
 
+import static org.junit.Assert.assertEquals;
+
 public class EpicMiddlewareTest {
 
   static class TestMiddleware implements Middleware<Integer> {
@@ -35,7 +37,9 @@ public class EpicMiddlewareTest {
 
     TestMiddleware testMiddleware = new TestMiddleware(actionSubject);
 
-    Store store = StoreKt.createStore(new StateReducer(), 1,
+    State s = new State(0);
+
+    Store<State> store = StoreKt.<State>createStore(new StateReducer(), s,
         MiddlewareKt.applyMiddleware(middleware, testMiddleware));
 
     TestObserver<Object> testObserver = actionSubject.test();
@@ -43,5 +47,7 @@ public class EpicMiddlewareTest {
 
     store.dispatch(new BeepAction());
     testObserver.assertValueCount(2);
+
+    assertEquals("The expected value is -1", -1, store.getState().i);
   }
 }
