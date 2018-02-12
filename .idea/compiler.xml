@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="au.com.jtribe.reduxobservable.redux-observable_main" target="1.8" />
-      <module name="au.com.jtribe.reduxobservable.redux-observable_test" target="1.8" />
+      <module name="au.com.jtribe.reduxobservable.redux-observable_main" target="1.7" />
+      <module name="au.com.jtribe.reduxobservable.redux-observable_test" target="1.7" />
       <module name="redux-observable-library_main" target="1.7" />
       <module name="redux-observable-library_test" target="1.7" />
       <module name="redux-observable-sample_main" target="1.8" />
