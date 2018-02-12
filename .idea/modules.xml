@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/redux-observable-library/redux-observable-library_main.iml" filepath="$PROJECT_DIR$/.idea/modules/redux-observable-library/redux-observable-library_main.iml" group="redux-observable-library" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/redux-observable-library/redux-observable-library_test.iml" filepath="$PROJECT_DIR$/.idea/modules/redux-observable-library/redux-observable-library_test.iml" group="redux-observable-library" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/redux-observable-sample.iml" filepath="$PROJECT_DIR$/.idea/modules/redux-observable-sample.iml" group="redux-observable-sample" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/redux-observable-sample/redux-observable-sample_main.iml" filepath="$PROJECT_DIR$/.idea/modules/redux-observable-sample/redux-observable-sample_main.iml" group="redux-observable-sample" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/redux-observable-sample/redux-observable-sample_test.iml" filepath="$PROJECT_DIR$/.idea/modules/redux-observable-sample/redux-observable-sample_test.iml" group="redux-observable-sample" />
     </modules>
   </component>

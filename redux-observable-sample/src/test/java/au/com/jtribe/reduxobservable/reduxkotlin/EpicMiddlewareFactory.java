@@ -16,6 +16,12 @@ import redux.api.enhancer.Middleware;
  */
 
 public class EpicMiddlewareFactory<S> {
+
+  private EpicMiddlewareFactory() {
+    throw new RuntimeException(
+        "Instantiating an instance of this class, no matter how much you might like to, is not recommended");
+  }
+
   public static <S> Middleware<S> createMiddleware(Epic<S> e) {
     return new Middleware<S>() {
       boolean subscribed = false;
