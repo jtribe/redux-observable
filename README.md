@@ -25,3 +25,23 @@ It is possible to combine multiple Epics into one composite Epic via the `Combin
 This library is engineered mainly for use with [redux-kotlin](https://github.com/pardom/redux-kotlin). There is an ```EpicMiddlewareFactory``` class provided by the library that will take an Epic and turn it into redux-kotlin compatible middleware. By plugging your epic into `EpicMiddlewareFactory.createMiddleware(Epic<S> epic)`, you will be given some `Middleware` that you can slot right into your redux.
 
 If you wish to use the Epic implementation contained in this library in conjunction with some other redux, you will need to construct your own wrapper for your Epics to turn them into middleware. 
+
+## To use this library:
+
+Add it in your root build.gradle at the end of repositories:
+
+```groovy
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+Step 2. Add the dependency
+
+```groovy
+dependencies {
+        compile 'com.github.jtribe:redux-observable:0.1'
+}
+```
